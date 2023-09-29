@@ -1,8 +1,9 @@
 import "./App.css";
+import Options from "./pages/entries/Options";
 import SummaryForm from "./pages/summary/FormSummary";
 
 function App() {
-  return <SummaryForm />;
+  return <Options optionType={"scoops"} />;
 }
 
 export default App;
