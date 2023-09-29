@@ -1,9 +1,14 @@
-import "./App.css";
-import Options from "./pages/entries/Options";
-import SummaryForm from "./pages/summary/FormSummary";
+import { OrderDetailsProvider } from "./contexts/OrderDetails";
+import OrderEntry from "./pages/entries/OrderEntry";
+import OrderSummary from "./pages/summary/OrderSummary";
 
 function App() {
-  return <Options optionType={"scoops"} />;
+  return (
+    <OrderDetailsProvider>
+      <OrderEntry />
+      {/* <OrderSummary /> */}
+    </OrderDetailsProvider>
+  );
 }
 
 export default App;

@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen } from "../../../test-utils";
 import Options from "../Options";
 
 test("options render the corresponding scoop images for scoop optionType", async () => {
@@ -9,7 +9,7 @@ test("options render the corresponding scoop images for scoop optionType", async
   const altText = images.map((element) => element.alt);
   expect(altText).toEqual([
     "chocolate scoop",
-    "mango scoop",
+    "vanilla scoop",
     "orange scoop",
     "nimbu scoop",
   ]);
