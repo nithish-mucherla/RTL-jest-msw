@@ -2,10 +2,20 @@ import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { Popover } from "react-bootstrap";
+import axios from "axios";
 
-export default function SummaryForm() {
+export default function SummaryForm({ setOrderPhase }) {
   const [tcChecked, setTcChecked] = useState(false);
   const [showTc, setShowTc] = useState(false);
+
+  const placeOrder = () => {
+    axios
+      .post("http://localhost:3030/order", JSON.stringify({}))
+      .then((response) => {
+        setOrderPhase("complete");
+      })
+      .catch((e) => console.log(e));
+  };
 
   const checkboxLabel = (
     <span>
@@ -36,7 +46,7 @@ export default function SummaryForm() {
           label={checkboxLabel}
         />
       </Form.Group>
-      <Button variant="primary" type="submit" disabled={!tcChecked}>
+      <Button variant="primary" disabled={!tcChecked} onClick={placeOrder}>
         Confirm order
       </Button>
     </Form>

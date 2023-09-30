@@ -4,7 +4,7 @@ import React from "react";
 import { formatCurrency } from "../../utils";
 import { Col, Container, Row } from "react-bootstrap";
 
-export default function OrderSummary(props) {
+export default function OrderSummary({ setOrderPhase }) {
   const { totals, selectionDetails } = useOrderDetails();
   const getSelectedOptions = (optionType) => {
     const selectedOptions = [];
@@ -28,7 +28,7 @@ export default function OrderSummary(props) {
         <Col>{getSelectedOptions("toppings")}</Col>
         <h3>Order total: {formatCurrency(totals.scoops + totals.toppings)}</h3>
       </Row>
-      <SummaryForm />
+      <SummaryForm setOrderPhase={setOrderPhase} />
     </Container>
   );
 }
